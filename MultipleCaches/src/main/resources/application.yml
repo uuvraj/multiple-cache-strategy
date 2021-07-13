@@ -1,6 +1,26 @@
 server:
   port: 9090
-  
+
+logging:
+  level:
+    io.github.*: DEBUG
+
 spring:
   application:
     name: MultipleCaches
+
+  jackson:
+    default-property-inclusion: NON_NULL
+    
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+      omdb:
+        default-query-parameters:
+          apikey: 1828c123
+          
+omdb.hostname: http://www.omdbapi.com
